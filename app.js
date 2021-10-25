@@ -11,4 +11,4 @@ const playerRoutes = require('./routes/player-items');
 app.use(auctionRoutes);
 app.use(playerRoutes);
 
-app.listen(4000);
+app.listen(process.env.PORT || 4000);
