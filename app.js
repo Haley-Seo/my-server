@@ -3,12 +3,12 @@ const express = require('express');
 
 const app = express();
 
-const auctionRoutes = require('./auctioni-items');
-const playerRoutes = require('./player-items');
+const auctionRoutes = require('./routes/auction-items');
+const playerRoutes = require('./routes/player-items');
 
 // app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(auctionRoutes);
 app.use(playerRoutes);
 
-app.listen(3000);
+app.listen(4000);
