@@ -9,17 +9,16 @@ const extractPlayerItems = async (items) => {
   try {
     const { parsed } = await nbt.parse(data);
     const items = parsed.value.i.value.value;
-    const newItems = items.map(el => {
-      return {
-        id: el.id.value,
-        name: el.tag.value.display.value.Name.value.substring(2),
-        extra: el.tag.value.ExtraAttributes.value.id.value.toLowerCase().split('_').join(' ')
-      }
-    })
+    // const newItems = items.map(el => {
+    //   return {
+    //     id: el.id.value,
+    //     name: el.tag.value.display.value.Name.value.substring(2),
+    //     extra: el.tag.value.ExtraAttributes.value.id.value.toLowerCase().split('_').join(' ')
+    //   }
+    // })
 
     return {
-
-      newItems
+      items
     }
   } catch (error) { 
     console.log(error);
@@ -27,7 +26,7 @@ const extractPlayerItems = async (items) => {
   }
 }
 
-router.get('/get-player', async (req, res, next) => {
+router.get('/get-player-raw', async (req, res, next) => {
   const apiKey = req.query.key;
   const playerId = req.query.uuid;
   const profile = req.query.profile;
